@@ -19,7 +19,9 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-
+  
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: second_app_production
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: unicode 
